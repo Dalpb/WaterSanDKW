@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
@@ -61,36 +62,42 @@ fun InitialView(){
                 ),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.SpaceAround
-
-
         ) {
-            Box(
+            Column(
                 modifier = Modifier
-                    .size(130.dp)
-                    .drawBehind() {
-                        drawCircle(
-                            color = Yellow10.copy(alpha = 0.3f),
-                            radius = size.width / 2 + 10.dp.toPx(),
-                            center = center
-                        )
-                    }
-                    .background(color = Yellow10, shape = CircleShape)
-                    .clip(CircleShape)
-                    .border(3.dp, Color.Transparent, CircleShape)
-                ){
-                Image(
-                    painter = imageLogo,
-                    contentDescription = "Represent the logo image",
-                    modifier = Modifier.fillMaxSize().offset(y = 27.dp)
+                    .fillMaxWidth(),
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.spacedBy(20.dp)
+            ) {
+                Box(
+                    modifier = Modifier
+                        .size(130.dp)
+                        .drawBehind() {
+                            drawCircle(
+                                color = Yellow10.copy(alpha = 0.3f),
+                                radius = size.width / 2 + 10.dp.toPx(),
+                                center = center
+                            )
+                        }
+                        .background(color = Yellow10, shape = CircleShape)
+                        .clip(CircleShape)
+                        .border(3.dp, Color.Transparent, CircleShape)
+                ) {
+                    Image(
+                        painter = imageLogo,
+                        contentDescription = "Represent the logo image",
+                        modifier = Modifier.fillMaxSize().offset(y = 27.dp)
+                    )
+                }
+                Text(
+                    "WATER SAN\n\n APP",
+                    textAlign = TextAlign.Center,
+                    color = Color.White,
+                    fontSize = 45.sp,
+                    fontWeight = FontWeight.Medium,
+                    fontFamily = HomenajeFont
                 )
             }
-            Text("WATER SAN\n\n APP",
-                textAlign = TextAlign.Center,
-                color =Color.White,
-                fontSize = 45.sp,
-                fontWeight = FontWeight.Medium,
-                fontFamily = HomenajeFont
-                )
             PrimaryButton(onclick = {}) {
                 Text("Iniciar", fontSize = 25.sp, fontFamily = HomenajeFont, fontWeight = FontWeight.Medium)
             }
