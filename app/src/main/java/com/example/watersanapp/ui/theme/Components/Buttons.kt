@@ -19,7 +19,7 @@ fun PrimaryButton(
         modifier = modifier.size(160.dp, 50.dp),
         onClick = onclick,
         colors = ButtonDefaults.buttonColors(containerColor = Blue10),
-        shape = RoundedCornerShape(20.dp)
+        shape = RoundedCornerShape(10.dp)
     ) {
         content()
     }

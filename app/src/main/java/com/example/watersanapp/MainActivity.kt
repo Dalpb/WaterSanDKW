@@ -11,6 +11,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.watersanapp.Navigation.Navigation
+import com.example.watersanapp.View.InitialFormView
 import com.example.watersanapp.View.InitialView
 import com.example.watersanapp.ui.theme.WaterSanAppTheme
 
@@ -20,7 +22,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             WaterSanAppTheme {
-                InitialView()
+                Navigation()
             }
         }
     }
