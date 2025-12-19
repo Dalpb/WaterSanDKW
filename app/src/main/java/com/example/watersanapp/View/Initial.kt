@@ -51,19 +51,23 @@ fun InitialView(navController : NavController){
     fun goNext(){
         navController.navigate("FormInit")
     }
-    Scaffold(modifier = Modifier
-        .fillMaxSize()
-        ) { innerPadding ->
-        Column(modifier = Modifier
-            .padding(innerPadding)
-            .fillMaxSize().background(
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(
                 brush = Brush.verticalGradient(
                     colorStops = arrayOf(
-                        0.11f to Blue20 ,
+                        0.11f to Blue20,
                         1f to White10
                     )
                 )
-                ),
+            )
+    ) {
+    Scaffold(containerColor = Color.Transparent,
+        ) { innerPadding ->
+        Column(modifier = Modifier
+            .padding(innerPadding)
+            .fillMaxSize(),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.SpaceAround
         ) {
@@ -114,4 +118,5 @@ fun InitialView(navController : NavController){
         }
 
     }
+        }
 }

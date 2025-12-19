@@ -45,94 +45,104 @@ fun InitialFormView(navController : NavController, viewModel: InitFormViewModel)
     val imageLogo = painterResource(R.drawable.tear_logo_v2)
     val imageArm = painterResource(R.drawable.tear_arm)
 
-    Scaffold(modifier = Modifier
-        .fillMaxSize()
-    ) { innerPadding ->
-        Column(modifier = Modifier
-            .padding(innerPadding)
-            .fillMaxSize().background(
+    fun goNext() {
+        navController.navigate("Home")
+    }
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(
                 brush = Brush.verticalGradient(
                     colorStops = arrayOf(
-                        0.11f to Blue20 ,
+                        0.11f to Blue20,
                         1f to White10
                     )
                 )
-            ),
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.SpaceAround
-        ) {
-            Box() {
-                Image(
-                    painter = imageLogo,
-                    contentDescription = "Represent the logo image",
-                    modifier = Modifier.size(100.dp).offset(y = (-80).dp,x=40.dp)
-                )
-                Column(
-                    modifier = Modifier
-                        .fillMaxWidth(.9f)
-                        .background(color = Color.White, shape = RoundedCornerShape(10.dp))
-                        .border(3.dp, Color.Transparent, RoundedCornerShape(10.dp))
-                        .padding(2.dp, 20.dp),
-                    horizontalAlignment = Alignment.CenterHorizontally,
-                    verticalArrangement = Arrangement.spacedBy(18.dp)
-                ) {
-                    Text(
-                        "Tus Datos",
-                        textAlign = TextAlign.Center,
-                        fontWeight = FontWeight.SemiBold,
-                        fontSize = 25.sp
+            )
+    ) {
+        Scaffold(
+            containerColor = Color.Transparent,
+        ) { innerPadding ->
+            Column(
+                modifier = Modifier
+                    .padding(innerPadding)
+                    .fillMaxSize(),
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.SpaceAround
+            ) {
+                Box() {
+                    Image(
+                        painter = imageLogo,
+                        contentDescription = "Represent the logo image",
+                        modifier = Modifier.size(100.dp).offset(y = (-80).dp, x = 40.dp)
                     )
-                    Text(
-                        "Introduce tus datos para iniciar",
-                        fontSize = 18.sp,
-                        textAlign = TextAlign.Center,
-                        color = Color(0xFF1F2A60),
-                    )
-                    Column() {
-                        Text("Nombre", fontWeight = FontWeight.Medium)
-                        Input(
-                            value = stateForm.name,
-                            onValueChange = viewModel::onChangeName,
-                            label = "Tu nombre"
+                    Column(
+                        modifier = Modifier
+                            .fillMaxWidth(.9f)
+                            .background(color = Color.White, shape = RoundedCornerShape(10.dp))
+                            .border(3.dp, Color.Transparent, RoundedCornerShape(10.dp))
+                            .padding(2.dp, 20.dp),
+                        horizontalAlignment = Alignment.CenterHorizontally,
+                        verticalArrangement = Arrangement.spacedBy(18.dp)
+                    ) {
+                        Text(
+                            "Tus Datos",
+                            textAlign = TextAlign.Center,
+                            fontWeight = FontWeight.SemiBold,
+                            fontSize = 25.sp
                         )
-                    }
-                    Column() {
-                        Text("Peso (Kg)", fontWeight = FontWeight.Medium)
-                        Input(
-                            value = stateForm.weight.toString(),
-                            onValueChange = viewModel::onChangeWeight,
-                            label = "Tu peso en kilogramos"
+                        Text(
+                            "Introduce tus datos para iniciar",
+                            fontSize = 18.sp,
+                            textAlign = TextAlign.Center,
+                            color = Color(0xFF1F2A60),
                         )
-                    }
-                    Column() {
-                        Text("Edad", fontWeight = FontWeight.Medium)
-                        Input(
-                            value = stateForm.age.toString(),
-                            onValueChange = viewModel::onChangeAge,
-                            label = "Tu edad"
-                        )
-                    }
-                    Row() {
-                        PrimaryButton(onclick = {}) {
-                            Text(
-                                "Continuar",
-                                fontSize = 25.sp,
-                                fontFamily = HomenajeFont,
-                                fontWeight = FontWeight.Medium
+                        Column() {
+                            Text("Nombre", fontWeight = FontWeight.Medium)
+                            Input(
+                                value = stateForm.name,
+                                onValueChange = viewModel::onChangeName,
+                                label = "Tu nombre"
                             )
                         }
+                        Column() {
+                            Text("Peso (Kg)", fontWeight = FontWeight.Medium)
+                            Input(
+                                value = stateForm.weight.toString(),
+                                onValueChange = viewModel::onChangeWeight,
+                                label = "Tu peso en kilogramos"
+                            )
+                        }
+                        Column() {
+                            Text("Edad", fontWeight = FontWeight.Medium)
+                            Input(
+                                value = stateForm.age.toString(),
+                                onValueChange = viewModel::onChangeAge,
+                                label = "Tu edad"
+                            )
+                        }
+                        Row() {
+                            PrimaryButton(onclick = { goNext() }) {
+                                Text(
+                                    "Continuar",
+                                    fontSize = 25.sp,
+                                    fontFamily = HomenajeFont,
+                                    fontWeight = FontWeight.Medium
+                                )
+                            }
+                        }
+                    }
+                    Box() {
+                        //TODO: MOdify the image it does not make sense
+                        Image(
+                            painter = imageArm,
+                            contentDescription = "Represent the logo image",
+                            modifier = Modifier.size(60.dp).offset(y = (0).dp, x = 26.dp)
+                        )
                     }
                 }
-                Box() {
-                    //TODO: MOdify the image it does not make sense
-                    Image(
-                        painter = imageArm,
-                        contentDescription = "Represent the logo image",
-                        modifier = Modifier.size(60.dp).offset(y = (0).dp, x = 26.dp)
-                    )
-                }
             }
-        }
 
+        }
     }
 }
