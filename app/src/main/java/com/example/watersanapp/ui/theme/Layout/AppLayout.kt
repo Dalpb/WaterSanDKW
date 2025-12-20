@@ -4,8 +4,12 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Info
@@ -24,6 +28,7 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.watersanapp.ui.theme.Blue20
@@ -32,7 +37,8 @@ import com.example.watersanapp.ui.theme.White10
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun AppLayout(navController: NavController,content: @Composable ()-> Unit){
+fun AppLayout(title: String,
+    navController: NavController,content: @Composable ()-> Unit){
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -52,7 +58,7 @@ fun AppLayout(navController: NavController,content: @Composable ()-> Unit){
                     title = {
                         Row(horizontalArrangement = Arrangement.Center,
                             modifier = Modifier.fillMaxSize()) {
-                            Text("Water-San App",
+                            Text(title,
                                 color = Color.White,
                                 fontFamily = HomenajeFont,
                                 fontWeight = FontWeight.Medium,
@@ -64,12 +70,17 @@ fun AppLayout(navController: NavController,content: @Composable ()-> Unit){
                 )
             },
             bottomBar = {
-                BottomAppBar(containerColor = Color.White.copy(alpha = 0.5f)){
+                BottomAppBar(containerColor = Color.White.copy(alpha = 0.5f),
+                    modifier = Modifier.fillMaxWidth().height(100.dp)){
+                    Row(modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.SpaceEvenly) {
                     IconButton(onClick = {}) {
-                        Icon(Icons.Filled.Home, contentDescription = "Home Icon")
+                        Icon(Icons.Filled.Home, contentDescription = "Home Icon"
+                        )
                     }
                     IconButton(onClick = {}) {
                         Icon(Icons.Filled.Info, contentDescription = "Information Icon")
+                    }
                     }
                 }
             }
