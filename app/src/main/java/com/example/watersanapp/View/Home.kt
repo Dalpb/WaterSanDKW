@@ -27,6 +27,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.watersanapp.ui.theme.Components.CardWater
 import com.example.watersanapp.ui.theme.Components.MyProgressCircle
+import com.example.watersanapp.ui.theme.Components.Tamagotchi
 import com.example.watersanapp.ui.theme.Layout.AppLayout
 import com.example.watersanapp.ui.theme.Model.WaterOption
 import com.example.watersanapp.ui.theme.ViewModel.HomeViewModel
@@ -83,6 +84,7 @@ fun HomeView(navController: NavController, viewModel: HomeViewModel) {
                 }
 
             }
+            Tamagotchi()
         }
     }
 }

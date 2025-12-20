@@ -30,7 +30,8 @@ fun CardWater(cupType: String, quantity: Float, onClick: (quantity: Float) -> Un
             .border(2.dp, color = Color(0xFFDBEAFE), shape = RoundedCornerShape(roundCor.dp))
             .clickable { onClick(quantity) }
             .padding(16.dp)
-            .width(100.dp),
+            .width(100.dp)
+            ,
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
