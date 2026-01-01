@@ -15,3 +15,8 @@ val Blue20 = Color(0xFF55A4FF)
 val White10 = Color(0xFFD7E2F6)
 
 val Yellow10 = Color(0xFFFFE3AF)
+
+
+val BlueStrong = Color(0xFF368CE2)
+val BlueMedium = Color(0xFF71C0F4)
+val BlueLigth1 = Color(0xFFD8F1fD)

@@ -32,6 +32,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.watersanapp.ui.theme.Blue20
+import com.example.watersanapp.ui.theme.BlueLigth1
+import com.example.watersanapp.ui.theme.BlueMedium
+import com.example.watersanapp.ui.theme.BlueStrong
 import com.example.watersanapp.ui.theme.HomenajeFont
 import com.example.watersanapp.ui.theme.White10
 
@@ -45,8 +48,9 @@ fun AppLayout(title: String,
             .background(
                 brush = Brush.verticalGradient(
                     colorStops = arrayOf(
-                        0.11f to Blue20,
-                        1f to White10
+                        0f to BlueStrong,
+                        .5f to BlueMedium,
+                        1f to BlueLigth1
                     )
                 )
             )
@@ -65,7 +69,7 @@ fun AppLayout(title: String,
                                 fontSize = 45.sp,
                                 textAlign = TextAlign.Center) }},
                     colors = TopAppBarDefaults.topAppBarColors(
-                        containerColor = Color.White.copy(alpha = 0.5f)
+                        containerColor = Color.Transparent
                     )
                 )
             },

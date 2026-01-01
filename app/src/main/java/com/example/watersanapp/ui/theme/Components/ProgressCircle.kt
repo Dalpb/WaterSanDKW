@@ -2,6 +2,7 @@ package com.example.watersanapp.ui.theme.Components
 
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -42,10 +43,12 @@ fun MyProgressCircle(goal: Float,progress: Float){
     val angle = progressAnimation * 360f
 
 
-    Box(modifier = Modifier.size(cSize.dp)){
+    Box(modifier = Modifier.size(cSize.dp)
+        .background(color = Color.Transparent)){
         Box(
             modifier = Modifier
                 .fillMaxSize()
+                .background(color = Color.Transparent)
                 .drawBehind() {
                     drawArc(
                         startAngle = 0.0f,
@@ -56,6 +59,7 @@ fun MyProgressCircle(goal: Float,progress: Float){
                         brush = Brush.verticalGradient(colors = listOf(Color(0xFFDBEAFE),Color(0xFFDBEAFE)))
                     )
                 }
+                .background(color = Color.Transparent)
         )
         Box(
             modifier = Modifier
@@ -70,9 +74,11 @@ fun MyProgressCircle(goal: Float,progress: Float){
                         brush = Brush.verticalGradient(colors = listOf(Blue20, Color(0xFF07B3D5)))
                     )
                 }
+                .background(color = Color.Transparent)
         )
         Column(modifier = Modifier
-            .fillMaxSize(),
+            .fillMaxSize()
+            .background(color = Color.Transparent),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally) {
 

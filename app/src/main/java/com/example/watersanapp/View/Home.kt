@@ -20,6 +20,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.blur
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
@@ -55,7 +56,7 @@ fun HomeView(navController: NavController, viewModel: HomeViewModel) {
                 modifier = Modifier
                     .fillMaxWidth()
                     .shadow(elevation = 5.dp, shape = RoundedCornerShape(20.dp))
-                    .background(color = Color.White, shape = RoundedCornerShape(
+                    .background(color = Color.White.copy(alpha = .7f), shape = RoundedCornerShape(
                         20.dp))
                     .padding(20.dp, 20.dp),
                 horizontalAlignment = Alignment.CenterHorizontally
